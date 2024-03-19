@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" width="80%">
+		<tr>
+			<th>bookid</th>
+			<th>bookname</th>
+			<th>price</th>
+			<th>publisher</th>
+		</tr>
+		<tr th:each="b:${list}">
+			<td th:text="${b.bookid}"></td>
+			<td th:text="${b.bookname}"></td>
+			<td th:text="${b.price}"></td>
+			<td th:text="${b.publisher}"></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>도서수정</h2>
+	<hr>
+	<form action="save" method="post">
+		<input type="hidden" name="bookid" th:value="${b.bookid}"><br>
+		도서이름<input type="text" name="bookname" th:value="${b.bookname}"><br>
+		도서가격<input type="text" name="price" th:value="${b.price}"><br>
+		출판사명<input type="text" name="publisher" th:value="${b.publisher}"><br>
+		<input type="submit" value="수정">
+		<input type="reset" value="다시입력">
+	</form>
+</body>
+</html>
+</body>
+</html>

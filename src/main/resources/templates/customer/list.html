@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js
+"></script>
+<script>
+	$(function(){
+		$(".checkDelete").click(function(e){
+			var re = confirm("정말로 상제하는게 맞아요?")
+			if(re == false){
+				e.preventDefault();
+			}
+		});		
+	});
+</script>
+</head>
+<body>
+	<h2>고객목록</h2>
+	<form action="/customer/search" method="post">
+		고객이름으로 검색: <input type="text" name="name">
+		<input type="submit" value="검색">
+	</form>
+	
+	
+	<hr>
+	<a href="/customer/insert">등록</a>
+	<table border="1" width="80%">
+		<tr>
+			<th>고객번호</th>
+			<th>고객이름</th>
+			<th>주소</th>
+			<th>전화번호</th>
+			<th></th>
+		</tr>
+		<tr th:each="c:${list}">
+			<td th:text="${c.custid}"></td>
+			<td th:text="${c.name}"></td>
+			<td th:text="${c.addr}"></td>
+			<td th:text="${c.phone}"></td>
+			<td>
+				<a th:href="@{/customer/update(custid=${c.custid})}">수정</a>
+				<a class="checkDelete" th:href="@{/customer/delete(custid=${c.custid})}">삭제</a>
+			</td>
+		</tr>
+	</table>	
+</body>
+</html>

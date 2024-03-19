@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>주문등록</h2>
+	<hr>
+	<form action="/orders/save" method="post">
+	
+	주문번호:<input type="text" name="orderid" th:value="${orderid}"> <br>
+	고객번호:<Select name="customer.custid">
+				<option th:each="c:${cList}" 
+						th:value="${c.custid}" 
+						th:text="${c.name}">
+				</option>
+			</Select><br>
+	도서번호:<Select name="book.bookid">
+				<option th:each="b:${bList}" 
+						th:value="${b.bookid}" 
+						th:text="${b.bookname}">
+				</option>
+			</Select><br>
+	주문가격:<input type="text" name="saleprice"><br>
+	<input type="submit" value="등록">
+	<input type="reset" value="취소">
+	</form>
+
+</body>
+</html>

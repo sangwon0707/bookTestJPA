@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>주문목록</h2>
+<form action="/orders/list" method="get">
+	고객명:<input type="search" name="keyword"/>
+	<input type="submit" value="검색">
+</form>
+
+<table border="1" width="80%">
+	<tr>
+		<th>주문번호</th>
+		<th>고객번호</th>
+		<th>고객이름</th>
+		<th>도서번호</th>
+		<th>도서명</th>
+		<th>도서가격</th>		
+		<th>주문날짜</th>
+	</tr>
+	<tr th:each="o:${list}">
+		<td th:text=${o.orderid}></td>
+		<td th:text=${o.customer.custid}></td>
+		<td th:text=${o.customer.name}></td>
+		<td th:text=${o.book.bookid}></td>
+		<td th:text=${o.book.bookname}></td>
+		<td th:text=${o.saleprice}></td>
+		<td th:text=${o.orderdate}></td>
+	</tr>
+</table>
+</body>
